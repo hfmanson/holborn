@@ -937,7 +937,8 @@ MS500:	lxi	h,4274		;1/2-sec count down
 IS8080:
 
 RXWAIT:	mvi	a,READER	;(7)BIOS call
-	call	GOBIOS		;(172+17=189)
+;	call	GOBIOS		;(172+17=189)
+	call	MYRDR
 
 	stc			;(4)
 
@@ -966,6 +967,14 @@ RXWAIT:	mvi	a,READER	;(7)BIOS call
 ;-------------------------------------------
 RXDONE:	pop	h
 	cmc			;Carry if timeout
+	ret
+
+;*****Subroutine holborn 6100 *************************
+MYRDR:	in	023h
+	ani	1
+	rz
+
+	in	021h
 	ret
 
 ;*****Subroutine***************************************
@@ -1713,3 +1722,4 @@ OPTTAB:
 
 	END
 
+
