@@ -1,0 +1,33 @@
+;
+; HARD DISK DEFINITION TABLE
+;
+	GLOBAL	HDSKDF
+;
+HDSKDF:
+ROD12M:
+	DEFB	0
+;			NUMBER OF TRACK'S
+	DEFB	192
+;			NUMBER OF HEAD'S
+	DEFB	8
+;
+	DEFB	0
+;			CYLINDER OF REDUCE WRITE CURRENT
+	DEFB	100
+;
+	DEFB	0
+;			CYLINDER OF PRECOMPENSATION
+	DEFB	100
+;
+;			ECC BURST LENGTH
+	DEFB	11
+;
+TIMFC:
+;			MAXIMUM TIMEOUT CONSTANT
+	DEFB	80	; 80 * 4 SEC.
+HDOPT:
+;			OPTION BYTE, STEP RATE
+	DEFB	4
+;
+	END
+
